@@ -12,7 +12,7 @@ namespace LibraryInfra.RepositoryImpl
     {
         List<Member> GetAllMembers(Member memberRequest);
         Member AddNewMember(Member memberRequest);
-        Member UpdateExistingBook(Member memberRequest);
+        Member UpdateExistingBook(int id,Member memberRequest);
         bool RemoveBook(int id);
         Member FindMemberByName(string name);
     }

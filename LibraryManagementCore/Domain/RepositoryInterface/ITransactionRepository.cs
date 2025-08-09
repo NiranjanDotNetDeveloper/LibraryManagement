@@ -12,8 +12,8 @@ namespace LibraryInfra.RepositoryImpl
     {
         List<Transaction> GetAllTransaction();
         Transaction AddNewTransaction(Transaction transactionRequest);
-        Transaction UpdateExistingTransaction(Transaction transactionRequest);
+        Transaction UpdateExistingTransaction(int id,Transaction transactionRequest);
         bool RemoveTransaction(int id);
-        Transaction FindTransactionById();
+        Transaction FindTransactionById(int id);
     }
 }

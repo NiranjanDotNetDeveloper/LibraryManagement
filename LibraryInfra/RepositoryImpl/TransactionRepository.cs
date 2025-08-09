@@ -1,4 +1,5 @@
 ﻿using LibraryCore.Domain.Entity;
+using LibraryInfra.SqlConnection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,29 +10,55 @@ namespace LibraryInfra.RepositoryImpl
 {
     public class TransactionRepository : ITransactionRepository
     {
+        private readonly DbContextImpl _dbContext;
+        public TransactionRepository(DbContextImpl dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public Transaction AddNewTransaction(Transaction transactionRequest)
         {
-            throw new NotImplementedException();
+            Transaction transaction = new Transaction();
+            transaction.BorrowDate = transactionRequest.BorrowDate;
+            transaction.ReturnDate = transactionRequest.ReturnDate;
+            transaction.FineAmount = transactionRequest.FineAmount;
+            _dbContext.Transactions.Add(transaction);
+            _dbContext.SaveChanges();
+            return transaction;
         }
 
-        public Transaction FindTransactionById()
+        public Transaction FindTransactionById(int id)
         {
-            throw new NotImplementedException();
+            Transaction transaction = _dbContext.Transactions.FirstOrDefault(x => x.TransactionId == id);
+            return transaction;
         }
 
         public List<Transaction> GetAllTransaction()
         {
-            throw new NotImplementedException();
+            return _dbContext.Transactions.ToList();
         }
 
         public bool RemoveTransaction(int id)
         {
-            throw new NotImplementedException();
+            Transaction transaction = _dbContext.Transactions.FirstOrDefault(x => x.TransactionId == id);
+            if (transaction == null)
+                return false;
+            else
+            {
+                _dbContext.Transactions.Remove(transaction);
+                _dbContext.SaveChanges();
+                return true;
+            }
         }
 
-        public Transaction UpdateExistingTransaction(Transaction transactionRequest)
+        public Transaction UpdateExistingTransaction(int id,Transaction transactionRequest)
         {
-            throw new NotImplementedException();
+            Transaction transaction = _dbContext.Transactions.FirstOrDefault(x=>x.TransactionId==id);
+            transaction.BorrowDate = transactionRequest.BorrowDate;
+            transaction.ReturnDate = transactionRequest.ReturnDate;
+            transaction.FineAmount = transactionRequest.FineAmount;
+            _dbContext.Transactions.Update(transaction);
+            _dbContext.SaveChanges();
+            return transaction;
         }
     }
 }
