@@ -33,7 +33,7 @@ namespace LibraryInfra.RepositoryImpl
             return member;
         }
 
-        public List<Member> GetAllMembers(Member memberRequest)
+        public List<Member> GetAllMembers()
         {
             return _dbContext.Members.ToList();
         }

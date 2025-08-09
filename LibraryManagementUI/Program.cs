@@ -14,15 +14,14 @@ namespace LibraryManagementUI
             builder.Services.AddDbContext<DbContextImpl>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnection")));
             builder.Services.AddTransient<IBookRepository, BookRepository>();
             builder.Services.AddTransient<IMemberRepository, MemberRepository>();
-            builder.Services.AddTransient<ITransactionRepository, ITransactionRepository>();
+            builder.Services.AddTransient<ITransactionRepository, TransactionRepository>();
             builder.Services.AddTransient<IBookService, BookService>();
             builder.Services.AddTransient<IMemberService, MemberService>();
             builder.Services.AddTransient<ITransactionService, TransactionService>();
             builder.Services.AddControllersWithViews();
             var app = builder.Build();
             app.UseStaticFiles();
-            app.UseRouting();
-            app.UseEndpoints(x=>x.MapControllers());
+            app.MapControllers();
             app.Run();
         }
     }
