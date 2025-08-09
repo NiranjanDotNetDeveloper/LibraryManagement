@@ -1,0 +1,11 @@
+G:\Library Management Backend\LibraryManagement\LibraryManagementCore\bin\Debug\net9.0\LibraryManagementCore.deps.json
+G:\Library Management Backend\LibraryManagement\LibraryManagementCore\bin\Debug\net9.0\LibraryManagementCore.dll
+G:\Library Management Backend\LibraryManagement\LibraryManagementCore\bin\Debug\net9.0\LibraryManagementCore.pdb
+G:\Library Management Backend\LibraryManagement\LibraryManagementCore\obj\Debug\net9.0\LibraryManagementCore.GeneratedMSBuildEditorConfig.editorconfig
+G:\Library Management Backend\LibraryManagement\LibraryManagementCore\obj\Debug\net9.0\LibraryManagementCore.AssemblyInfoInputs.cache
+G:\Library Management Backend\LibraryManagement\LibraryManagementCore\obj\Debug\net9.0\LibraryManagementCore.AssemblyInfo.cs
+G:\Library Management Backend\LibraryManagement\LibraryManagementCore\obj\Debug\net9.0\LibraryManagementCore.csproj.CoreCompileInputs.cache
+G:\Library Management Backend\LibraryManagement\LibraryManagementCore\obj\Debug\net9.0\LibraryManagementCore.dll
+G:\Library Management Backend\LibraryManagement\LibraryManagementCore\obj\Debug\net9.0\refint\LibraryManagementCore.dll
+G:\Library Management Backend\LibraryManagement\LibraryManagementCore\obj\Debug\net9.0\LibraryManagementCore.pdb
+G:\Library Management Backend\LibraryManagement\LibraryManagementCore\obj\Debug\net9.0\ref\LibraryManagementCore.dll

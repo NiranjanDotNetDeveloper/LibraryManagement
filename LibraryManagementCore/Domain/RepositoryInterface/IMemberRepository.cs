@@ -1,0 +1,19 @@
+﻿using LibraryCore.Domain.Entity;
+using LibraryManagementCore.DTOs;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LibraryInfra.RepositoryImpl
+{
+    public interface IMemberRepository
+    {
+        List<Member> GetAllMembers(Member memberRequest);
+        Member AddNewMember(Member memberRequest);
+        Member UpdateExistingBook(Member memberRequest);
+        bool RemoveBook(int id);
+        Member FindMemberByName(string name);
+    }
+}

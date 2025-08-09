@@ -1,0 +1,17 @@
+G:\Library Management Backend\LibraryManagement\LibraryInfra\bin\Debug\net9.0\LibraryInfra.deps.json
+G:\Library Management Backend\LibraryManagement\LibraryInfra\bin\Debug\net9.0\LibraryInfra.runtimeconfig.json
+G:\Library Management Backend\LibraryManagement\LibraryInfra\bin\Debug\net9.0\LibraryInfra.dll
+G:\Library Management Backend\LibraryManagement\LibraryInfra\bin\Debug\net9.0\LibraryInfra.pdb
+G:\Library Management Backend\LibraryManagement\LibraryInfra\bin\Debug\net9.0\LibraryManagementCore.dll
+G:\Library Management Backend\LibraryManagement\LibraryInfra\bin\Debug\net9.0\LibraryManagementCore.pdb
+G:\Library Management Backend\LibraryManagement\LibraryInfra\obj\Debug\net9.0\LibraryInfra.csproj.AssemblyReference.cache
+G:\Library Management Backend\LibraryManagement\LibraryInfra\obj\Debug\net9.0\LibraryInfra.GeneratedMSBuildEditorConfig.editorconfig
+G:\Library Management Backend\LibraryManagement\LibraryInfra\obj\Debug\net9.0\LibraryInfra.AssemblyInfoInputs.cache
+G:\Library Management Backend\LibraryManagement\LibraryInfra\obj\Debug\net9.0\LibraryInfra.AssemblyInfo.cs
+G:\Library Management Backend\LibraryManagement\LibraryInfra\obj\Debug\net9.0\LibraryInfra.csproj.CoreCompileInputs.cache
+G:\Library Management Backend\LibraryManagement\LibraryInfra\obj\Debug\net9.0\LibraryI.5FCBCFA2.Up2Date
+G:\Library Management Backend\LibraryManagement\LibraryInfra\obj\Debug\net9.0\LibraryInfra.dll
+G:\Library Management Backend\LibraryManagement\LibraryInfra\obj\Debug\net9.0\refint\LibraryInfra.dll
+G:\Library Management Backend\LibraryManagement\LibraryInfra\obj\Debug\net9.0\LibraryInfra.pdb
+G:\Library Management Backend\LibraryManagement\LibraryInfra\obj\Debug\net9.0\LibraryInfra.genruntimeconfig.cache
+G:\Library Management Backend\LibraryManagement\LibraryInfra\obj\Debug\net9.0\ref\LibraryInfra.dll
