@@ -12,7 +12,7 @@ namespace LibraryManagementCore.ServiceInterface
     {
         List<BookResponseDTO> GetAllBooks();
         BookResponseDTO AddNewBook(BookRequestDTO bookRequest);
-        BookResponseDTO UpdateExistingBook(BookRequestDTO bookRequest);
+        BookResponseDTO UpdateExistingBook(int id, BookRequestDTO bookRequest);
         bool RemoveBook(int bookId);
         BookResponseDTO FindBookByAuthor(string author);
         BookResponseDTO FindBookByTitle(string title);

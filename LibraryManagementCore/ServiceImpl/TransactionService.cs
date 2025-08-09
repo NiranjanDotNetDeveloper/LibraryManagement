@@ -1,4 +1,5 @@
-﻿using LibraryManagementCore.DTOs;
+﻿using LibraryInfra.RepositoryImpl;
+using LibraryManagementCore.DTOs;
 using LibraryManagementCore.ServiceInterface;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,38 @@ namespace LibraryManagementCore.ServiceImpl
 {
     public class TransactionService : ITransactionService
     {
+        private readonly ITransactionRepository transactionRepository;
+        public TransactionService(ITransactionRepository transactionRepository)
+        {
+            this.transactionRepository=transactionRepository;
+        }
         public TransactionResponseDTO AddNewTransaction(TransactionRequestDTO transactionRequest)
         {
-            throw new NotImplementedException();
+            var response = transactionRepository.AddNewTransaction(transactionRequest.ConvertTransactionRequestDTOToTransaction());
+            return response.ConvertTransactionResponseDTOToTransaction();
         }
 
         public TransactionResponseDTO FindTransactionById(int id)
         {
-            throw new NotImplementedException();
+           var response =  transactionRepository.FindTransactionById(id);
+            return response.ConvertTransactionResponseDTOToTransaction();
         }
 
         public List<TransactionResponseDTO> GetAllTransaction()
         {
-            throw new NotImplementedException();
+            var response = transactionRepository.GetAllTransaction();
+            return response.Select(x => x.ConvertTransactionResponseDTOToTransaction()).ToList();
         }
 
         public bool RemoveTransaction(int id)
         {
-            throw new NotImplementedException();
+          return transactionRepository.RemoveTransaction(id);
         }
 
-        public TransactionResponseDTO UpdateExistingTransaction(TransactionRequestDTO transactionRequest)
+        public TransactionResponseDTO UpdateExistingTransaction(int id, TransactionRequestDTO transactionRequest)
         {
-            throw new NotImplementedException();
+            var response = transactionRepository.UpdateExistingTransaction(id, transactionRequest.ConvertTransactionRequestDTOToTransaction());
+            return response.ConvertTransactionResponseDTOToTransaction();
         }
     }
 }

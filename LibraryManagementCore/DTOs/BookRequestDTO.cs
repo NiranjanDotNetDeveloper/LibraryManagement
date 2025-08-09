@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraryCore.Domain.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,5 +16,20 @@ namespace LibraryManagementCore.DTOs
             public string? ISBN { get; set; }
             public int? CopiesAvailable { get; set; }
             public int? Price { get; set; }
+    }
+    public static class ConvertBookEntity
+    {
+        public static Book ConvertBookRequestDTOToBook(this BookRequestDTO bookRequestDTO)
+        {
+            Book book = new Book();
+            book.BookId=bookRequestDTO.BookId;
+            book.Title = bookRequestDTO.Title;
+            book.ISBN = bookRequestDTO.ISBN;
+            book.Author = bookRequestDTO.Author;
+            book.Price = bookRequestDTO.Price;
+            book.CopiesAvailable = bookRequestDTO.CopiesAvailable;
+            return book;
+        }
+       
     }
 }

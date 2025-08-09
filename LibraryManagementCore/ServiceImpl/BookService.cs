@@ -1,4 +1,5 @@
-﻿using LibraryManagementCore.DTOs;
+﻿using LibraryInfra.RepositoryImpl;
+using LibraryManagementCore.DTOs;
 using LibraryManagementCore.ServiceInterface;
 using System;
 using System.Collections.Generic;
@@ -10,34 +11,45 @@ namespace LibraryManagementCore.ServiceImpl
 {
     public class BookService : IBookService
     {
+        private readonly IBookRepository bookRepository;
+        public BookService(IBookRepository bookRepository)
+        {
+            this.bookRepository=bookRepository;
+        }
         public BookResponseDTO AddNewBook(BookRequestDTO bookRequest)
         {
-            throw new NotImplementedException();
+             var reponse= bookRepository.AddNewBook(bookRequest.ConvertBookRequestDTOToBook());
+            return reponse.ConvertBookResponseDTOToBook();
         }
 
         public BookResponseDTO FindBookByAuthor(string author)
         {
-            throw new NotImplementedException();
+            var reponse = bookRepository.FindBookByAuthor(author);
+            return reponse.ConvertBookResponseDTOToBook();
         }
 
         public BookResponseDTO FindBookByTitle(string title)
         {
-            throw new NotImplementedException();
+            var reponse = bookRepository.FindBookByAuthor(title);
+            return reponse.ConvertBookResponseDTOToBook();
         }
 
         public List<BookResponseDTO> GetAllBooks()
         {
-            throw new NotImplementedException();
+            var response = bookRepository.GetAllBooks();
+            return response.Select(x => x.ConvertBookResponseDTOToBook()).ToList();
         }
 
         public bool RemoveBook(int bookId)
         {
-            throw new NotImplementedException();
+            var reponse = bookRepository.RemoveBook(bookId);
+            return reponse;
         }
 
-        public BookResponseDTO UpdateExistingBook(BookRequestDTO bookRequest)
+        public BookResponseDTO UpdateExistingBook(int id, BookRequestDTO bookRequest)
         {
-            throw new NotImplementedException();
+            var reponse = bookRepository.UpdateExistingBook(id, bookRequest.ConvertBookRequestDTOToBook());
+            return reponse.ConvertBookResponseDTOToBook();
         }
     }
 }

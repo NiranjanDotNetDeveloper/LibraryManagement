@@ -1,38 +1,51 @@
-﻿using LibraryManagementCore.DTOs;
+﻿using LibraryInfra.RepositoryImpl;
+using LibraryManagementCore.DTOs;
 using LibraryManagementCore.ServiceInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace LibraryManagementCore.ServiceImpl
 {
     public class MemberService : IMemberService
     {
+        private readonly IMemberRepository  memberRepository;
+        public MemberService(IMemberRepository memberRepository)
+        {
+            this.memberRepository = memberRepository;
+        }
         public MemberResponseDTO AddNewMember(MemberRequestDTO memberRequest)
         {
-            throw new NotImplementedException();
+            var response=memberRepository.AddNewMember(memberRequest.ConvertMemberRequestDTOToMember());
+            return response.ConvertMemberResponseDTOToMember();
         }
 
         public MemberResponseDTO FindMemberByName(string name)
         {
-            throw new NotImplementedException();
+            var response= memberRepository.FindMemberByName(name);
+            return response.ConvertMemberResponseDTOToMember();
         }
 
-        public List<MemberResponseDTO> GetAllMembers(MemberRequestDTO memberRequest)
+        public List<MemberResponseDTO> GetAllMembers()
         {
-            throw new NotImplementedException();
+            var response = memberRepository.GetAllMembers();
+            return response.Select(x => x.ConvertMemberResponseDTOToMember()).ToList();
+
         }
 
         public bool RemoveBook(int id)
         {
-            throw new NotImplementedException();
+           return memberRepository.RemoveBook(id);
+          
         }
 
-        public MemberResponseDTO UpdateExistingBook(MemberRequestDTO memberRequest)
+        public MemberResponseDTO UpdateExistingBook(int id, MemberRequestDTO memberRequest)
         {
-            throw new NotImplementedException();
+            var response = memberRepository.UpdateExistingBook(id,memberRequest.ConvertMemberRequestDTOToMember());
+            return response.ConvertMemberResponseDTOToMember();
         }
     }
 }

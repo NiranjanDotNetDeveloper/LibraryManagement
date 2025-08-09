@@ -10,7 +10,7 @@ namespace LibraryInfra.RepositoryImpl
 {
     public interface IMemberRepository
     {
-        List<Member> GetAllMembers(Member memberRequest);
+        List<Member> GetAllMembers();
         Member AddNewMember(Member memberRequest);
         Member UpdateExistingBook(int id,Member memberRequest);
         bool RemoveBook(int id);

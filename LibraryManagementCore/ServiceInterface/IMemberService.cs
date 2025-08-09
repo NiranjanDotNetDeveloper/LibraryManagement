@@ -10,9 +10,9 @@ namespace LibraryManagementCore.ServiceInterface
 {
     public interface IMemberService
     {
-        List<MemberResponseDTO> GetAllMembers(MemberRequestDTO memberRequest);
+        List<MemberResponseDTO> GetAllMembers();
         MemberResponseDTO AddNewMember(MemberRequestDTO memberRequest);
-        MemberResponseDTO UpdateExistingBook(MemberRequestDTO memberRequest);
+        MemberResponseDTO UpdateExistingBook(int id, MemberRequestDTO memberRequest);
         bool RemoveBook(int id);
         MemberResponseDTO FindMemberByName(string name);
     }

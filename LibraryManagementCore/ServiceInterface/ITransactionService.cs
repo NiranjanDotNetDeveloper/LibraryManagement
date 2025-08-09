@@ -11,7 +11,7 @@ namespace LibraryManagementCore.ServiceInterface
     {
         List<TransactionResponseDTO> GetAllTransaction();
         TransactionResponseDTO AddNewTransaction(TransactionRequestDTO transactionRequest);
-        TransactionResponseDTO UpdateExistingTransaction(TransactionRequestDTO transactionRequest);
+        TransactionResponseDTO UpdateExistingTransaction(int id, TransactionRequestDTO transactionRequest);
         bool RemoveTransaction(int id);
         TransactionResponseDTO FindTransactionById(int id);
     }
