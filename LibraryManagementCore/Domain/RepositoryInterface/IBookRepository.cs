@@ -12,8 +12,8 @@ namespace LibraryInfra.RepositoryImpl
     {
         List<Book> GetAllBooks();
         Book AddNewBook(Book bookRequest);
-        Book UpdateExistingBook(int bookId,Book bookRequest);
-        bool RemoveBook(int bookId);
+        Book UpdateExistingBook(string title,Book bookRequest);
+        bool RemoveBook(string title);
         Book FindBookByAuthor(string author);
         Book FindBookByTitle(string title);
     }

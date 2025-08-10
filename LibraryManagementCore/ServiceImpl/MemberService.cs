@@ -36,15 +36,15 @@ namespace LibraryManagementCore.ServiceImpl
 
         }
 
-        public bool RemoveBook(int id)
+        public bool RemoveMember(string name)
         {
-           return memberRepository.RemoveBook(id);
+           return memberRepository.RemoveMember(name);
           
         }
 
-        public MemberResponseDTO UpdateExistingBook(int id, MemberRequestDTO memberRequest)
+        public MemberResponseDTO UpdateExistingMember(string name, MemberRequestDTO memberRequest)
         {
-            var response = memberRepository.UpdateExistingBook(id,memberRequest.ConvertMemberRequestDTOToMember());
+            var response = memberRepository.UpdateExistingMember(name,memberRequest.ConvertMemberRequestDTOToMember());
             return response.ConvertMemberResponseDTOToMember();
         }
     }

@@ -1,12 +1,16 @@
-﻿@using LibraryManagementCore.DTOs
+﻿@{
+    Layout = "_Layout";
+}
+@using LibraryManagementCore.DTOs
 @model List<BookResponseDTO>
-
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
     @{
         ViewData["Title"] = "Books";
     }
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
  <h1 class="text-center text-primary">Books</h1>
+<a asp-controller="Book" asp-action="AddNewBook" class="btn btn-primary text-center mt-1">Add</a>
 <table class="table table-dark table-striped">
     <thead>
         <tr>
@@ -27,7 +31,7 @@
                 <td>@item.ISBN</td>
                 <td>@item.CopiesAvailable</td>
                 <td>@item.Price</td>
-                <td><button class="btn btn-warning">Edit</button><button class="btn btn-danger ms-1">Remove</button></td>
+                <td><a asp-controller="Book" asp-action="UpdateBooks" asp-route-title="@item.Title" class="btn btn-warning">Edit</a><a asp-controller="Book" asp-action="RemoveBooks" asp-route-title="@item.Title" class="btn btn-danger ms-1">Remove</a></td>
             </tr>
         }
         </tbody>

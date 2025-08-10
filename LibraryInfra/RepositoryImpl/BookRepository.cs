@@ -47,9 +47,9 @@ namespace LibraryInfra.RepositoryImpl
             return _dbContext.Books.ToList();
         }
 
-        public bool RemoveBook(int bookId)
+        public bool RemoveBook(string title)
         {
-            Book book=_dbContext.Books.FirstOrDefault(x => x.BookId == bookId);
+            Book book= FindBookByTitle(title);
             if (book != null)
             {
                 _dbContext.Books.Remove(book);
@@ -61,9 +61,9 @@ namespace LibraryInfra.RepositoryImpl
             
         }
 
-        public Book UpdateExistingBook(int bookId,Book bookRequest)
+        public Book UpdateExistingBook(string title,Book bookRequest)
         {
-            Book book = _dbContext.Books.FirstOrDefault(x => x.BookId == bookId);
+            Book book = _dbContext.Books.FirstOrDefault(x => x.Title == title);
             book.Title = bookRequest.Title;
             book.ISBN = bookRequest.ISBN;
             book.Author = bookRequest.Author;

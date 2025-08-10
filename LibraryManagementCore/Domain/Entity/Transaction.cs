@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraryManagementCore.DTOs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -23,6 +24,7 @@ namespace LibraryCore.Domain.Entity
         public DateOnly? BorrowDate { get; set; }
         public DateOnly? ReturnDate { get; set; }
         public int? FineAmount { get; set; }
-        
+
     }
+   
 }

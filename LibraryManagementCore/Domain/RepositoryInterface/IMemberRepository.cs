@@ -12,8 +12,8 @@ namespace LibraryInfra.RepositoryImpl
     {
         List<Member> GetAllMembers();
         Member AddNewMember(Member memberRequest);
-        Member UpdateExistingBook(int id,Member memberRequest);
-        bool RemoveBook(int id);
+        Member UpdateExistingMember(string name,Member memberRequest);
+        bool RemoveMember(string name);
         Member FindMemberByName(string name);
     }
 }

@@ -30,7 +30,7 @@ namespace LibraryManagementCore.ServiceImpl
 
         public BookResponseDTO FindBookByTitle(string title)
         {
-            var reponse = bookRepository.FindBookByAuthor(title);
+            var reponse = bookRepository.FindBookByTitle(title);
             return reponse.ConvertBookResponseDTOToBook();
         }
 
@@ -40,15 +40,15 @@ namespace LibraryManagementCore.ServiceImpl
             return response.Select(x => x.ConvertBookResponseDTOToBook()).ToList();
         }
 
-        public bool RemoveBook(int bookId)
+        public bool RemoveBook(string title)
         {
-            var reponse = bookRepository.RemoveBook(bookId);
+            var reponse = bookRepository.RemoveBook(title);
             return reponse;
         }
 
-        public BookResponseDTO UpdateExistingBook(int id, BookRequestDTO bookRequest)
+        public BookResponseDTO UpdateExistingBook(string title, BookRequestDTO bookRequest)
         {
-            var reponse = bookRepository.UpdateExistingBook(id, bookRequest.ConvertBookRequestDTOToBook());
+            var reponse = bookRepository.UpdateExistingBook(title, bookRequest.ConvertBookRequestDTOToBook());
             return reponse.ConvertBookResponseDTOToBook();
         }
     }

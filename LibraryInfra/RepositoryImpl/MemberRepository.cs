@@ -38,9 +38,9 @@ namespace LibraryInfra.RepositoryImpl
             return _dbContext.Members.ToList();
         }
 
-        public bool RemoveBook(int id)
+        public bool RemoveMember(string name)
         {
-            Member member = _dbContext.Members.FirstOrDefault(x => x.MemoberId == id);
+            Member member = FindMemberByName(name);
             if (member == null)
                 return false;
             else
@@ -51,9 +51,9 @@ namespace LibraryInfra.RepositoryImpl
             }
         }
 
-        public Member UpdateExistingBook(int id,Member memberRequest)
+        public Member UpdateExistingMember(string name,Member memberRequest)
         {
-            Member member = _dbContext.Members.FirstOrDefault(x=>x.MemoberId==id);
+            Member member = _dbContext.Members.FirstOrDefault(x=>x.Name == name);
             member.Name = memberRequest.Name;
             member.Email = memberRequest.Email;
             member.MembershipDate = memberRequest.MembershipDate;

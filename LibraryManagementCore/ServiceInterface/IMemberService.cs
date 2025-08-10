@@ -12,8 +12,8 @@ namespace LibraryManagementCore.ServiceInterface
     {
         List<MemberResponseDTO> GetAllMembers();
         MemberResponseDTO AddNewMember(MemberRequestDTO memberRequest);
-        MemberResponseDTO UpdateExistingBook(int id, MemberRequestDTO memberRequest);
-        bool RemoveBook(int id);
+        MemberResponseDTO UpdateExistingMember(string name, MemberRequestDTO memberRequest);
+        bool RemoveMember(string name);
         MemberResponseDTO FindMemberByName(string name);
     }
 }
