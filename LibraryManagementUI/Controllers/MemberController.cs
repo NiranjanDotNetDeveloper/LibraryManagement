@@ -33,11 +33,13 @@ namespace LibraryManagementUI.Controllers
             var response = memberService.AddNewMember(request);
             if (ModelState.IsValid)
             {
+                TempData["SuccessMessage"] = "Member added successfully!";
                 return RedirectToAction("GetAllMembers");
             }
             else
             {
                 var error = ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage);
+                TempData["ErrorMessage"] = "Failed to add Member!";
                 return View(response);
             }
         }
@@ -55,11 +57,13 @@ namespace LibraryManagementUI.Controllers
             if (ModelState.IsValid)
             {
                 memberService.UpdateExistingMember(name, response);
+                TempData["SuccessMessage"] = "Member Updated successfully!";
                 return RedirectToAction("GetAllMembers");
             }
             else
             {
                 var error = ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage);
+                TempData["ErrorMessage"] = "Failed to Update the Member!";
                 return View(response);
             }
         }
@@ -70,10 +74,12 @@ namespace LibraryManagementUI.Controllers
             var member = memberService.RemoveMember(name);
             if(member)
                 {
+                TempData["SuccessMessage"] = "Member removed successfully!";
                 return RedirectToAction("GetAllMembers");
             }
             else
             {
+                TempData["ErrorMessage"] = "Failed to remove the Member!";
                 return BadRequest("Member not found or could not be removed.");
             }
         }

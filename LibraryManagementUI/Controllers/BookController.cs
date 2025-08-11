@@ -35,11 +35,13 @@ namespace LibraryManagementUI.Controllers
             BookResponseDTO response = bookService.AddNewBook(requestDTO);
             if (ModelState.IsValid)
             {
+                TempData["SuccessMessage"] = "Book added successfully!";
                 return RedirectToAction("GetAllBooks");
             }
             else
             {
                 var errors = ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage);
+                TempData["ErrorMessage"] = "Failed to add book!";
                 return View(response);
             }
 
@@ -59,11 +61,13 @@ namespace LibraryManagementUI.Controllers
             BookResponseDTO response = bookService.UpdateExistingBook(requestDTO.Title,requestDTO);
             if (ModelState.IsValid)
             {
+                TempData["SuccessMessage"] = "Book Updated successfully!";
                 return RedirectToAction("GetAllBooks");
             }
             else
             {
                 var errors = ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage);
+                TempData["ErrorMessage"] = "Failed to Update the book!";
                 return View(response);
             }
 
@@ -74,9 +78,16 @@ namespace LibraryManagementUI.Controllers
         {
             bool result = bookService.RemoveBook(title);
             if(result)
+            {
+                TempData["SuccessMessage"] = "Book removed successfully!";
                 return RedirectToAction("GetAllBooks");
+            }
             else
+            {
+                TempData["ErrorMessage"] = "Failed to remove the book!";
                 return BadRequest("Book not found or could not be removed.");
+            }
+               
 
         }
     }

@@ -3,3 +3,7 @@
     ViewBag.Title = "Remove Member";
 }
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    TempData.Keep("SuccessMessage");
+    TempData.Keep("ErrorMessage");
+}

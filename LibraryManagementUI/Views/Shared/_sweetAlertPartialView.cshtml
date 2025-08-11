@@ -1,0 +1,29 @@
+﻿<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        @* Success Alert *@
+        @if (Model[0] != null)
+        {
+                        <text>
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                    text: '@Model[0]',
+                                timer: 3000,
+                                showConfirmButton: false
+                            });
+                        </text>
+        }
+
+        @* Error Alert *@
+        @if (Model[1] != null)
+        {
+                        <text>
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                    text: '@Model[1]]'
+                            });
+                        </text>
+        }
+    });
+</script>
