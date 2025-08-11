@@ -2,6 +2,7 @@ using LibraryInfra.RepositoryImpl;
 using LibraryInfra.SqlConnection;
 using LibraryManagementCore.ServiceImpl;
 using LibraryManagementCore.ServiceInterface;
+using LibraryManagementUI.Middleware;
 using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagementUI
@@ -12,6 +13,7 @@ namespace LibraryManagementUI
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddDbContext<DbContextImpl>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnection")));
+            builder.Services.AddTransient<ExceptionHandlerMiddleware>();
             builder.Services.AddTransient<IBookRepository, BookRepository>();
             builder.Services.AddTransient<IMemberRepository, MemberRepository>();
             builder.Services.AddTransient<ITransactionRepository, TransactionRepository>();
@@ -20,7 +22,9 @@ namespace LibraryManagementUI
             builder.Services.AddTransient<ITransactionService, TransactionService>();
             builder.Services.AddControllersWithViews();
             var app = builder.Build();
+            app.UseExceptionHandler("/Home/Error");
             app.UseStaticFiles();
+            app.UseExceptionHandlerMiddleware();
             app.MapControllers();
             app.Run();
         }
