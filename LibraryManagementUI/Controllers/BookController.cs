@@ -17,7 +17,7 @@ namespace LibraryManagementUI.Controllers
         public IActionResult GetAllBooks()
         {
            List<BookResponseDTO> response= bookService.GetAllBooks();
-           return View(response);
+            return View(response);
 
         }
         [Route("AddNewBooks")]

@@ -1,5 +1,6 @@
 ﻿using LibraryCore.Domain.Entity;
 using LibraryInfra.SqlConnection;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,8 @@ namespace LibraryInfra.RepositoryImpl
         public Transaction AddNewTransaction(Transaction transactionRequest)
         {
             Transaction transaction = new Transaction();
+            transaction.BookId= transactionRequest.BookId;
+            transaction.MemberId = transactionRequest.MemberId;
             transaction.BorrowDate = transactionRequest.BorrowDate;
             transaction.ReturnDate = transactionRequest.ReturnDate;
             transaction.FineAmount = transactionRequest.FineAmount;
@@ -34,7 +37,7 @@ namespace LibraryInfra.RepositoryImpl
 
         public List<Transaction> GetAllTransaction()
         {
-            return _dbContext.Transactions.ToList();
+            return _dbContext.Transactions.Include(x=>x.Books).Include(y=>y.Members).ToList();
         }
 
         public bool RemoveTransaction(int id)
